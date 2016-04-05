@@ -12,5 +12,7 @@ public interface FileInodeDataDataAccess<T> extends EntityDataAccess {
     T get(int inodeId) throws StorageException;
 
     void delete(T fileInodeData) throws StorageException;
+
+    int count() throws StorageException;
 }
 
