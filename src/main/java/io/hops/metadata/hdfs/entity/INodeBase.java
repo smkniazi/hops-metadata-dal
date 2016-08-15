@@ -31,15 +31,17 @@ public class INodeBase {
   protected boolean subtreeLocked;
   protected long subtreeLockOwner;
   protected long fileSize;
+  protected boolean isDir;
 
   public INodeBase(){
   }
 
-  public INodeBase(int id, int parentId, String name, int userID,
+  public INodeBase(int id, int parentId, String name, boolean isDir, int userID,
       int groupID, short permission, long header, boolean dirWithQuota,
       boolean underConstruction, boolean subtreeLocked, long subtreeLockOwner, long fileSize) {
     this.id = id;
     this.parentId = parentId;
+    this.isDir = isDir;
     this.name = name;
     this.userID = userID;
     this.groupID = groupID;
@@ -66,6 +68,14 @@ public class INodeBase {
 
   public void setParentId(int parentId) {
     this.parentId = parentId;
+  }
+
+  public boolean isDirectory(){
+    return this.isDir;
+  }
+
+  public void setIsDir(boolean isDir){
+    this.isDir = isDir;
   }
 
   public String getName() {
