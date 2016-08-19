@@ -18,6 +18,7 @@ package io.hops.transaction.handler;
 import io.hops.StorageConnector;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import java.util.Random;
 
 import java.io.IOException;
 
@@ -31,9 +32,10 @@ public abstract class RequestHandler {
   protected Object[] params = null;
   // TODO These should be in a config file
   public static final int RETRY_COUNT = 5;
-  public static final long BASE_WAIT_TIME = 500;
+  public static final int BASE_WAIT_TIME = 2000;
   protected OperationType opType;
   protected static StorageConnector connector;
+  protected static Random rand = new Random(System.currentTimeMillis());
 
   public static void setStorageConnector(StorageConnector c) {
     connector = c;
@@ -72,7 +74,11 @@ public abstract class RequestHandler {
             " ms before retry. TX name " + opType);
         Thread.sleep(waitTime);
       }
-      waitTime = waitTime == 0 ? BASE_WAIT_TIME : waitTime * 2;
+      if (waitTime == 0) {
+        waitTime = rand.nextInt((int)BASE_WAIT_TIME);
+      } else {
+        waitTime = waitTime * 2;
+      }
       return waitTime;
     } catch (InterruptedException ex) {
       log.warn(ex);
