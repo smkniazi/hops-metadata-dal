@@ -62,7 +62,7 @@ public interface INodeDataAccess<T> extends EntityDataAccess {
 
   int countAll() throws StorageException;
   
-  boolean hasChildren(int parentId) throws StorageException;
+  boolean hasChildren(int parentId, boolean areChildrenRandomlyPartitioned) throws StorageException;
   
   List<T> allINodes() throws StorageException; // only for testing
 }

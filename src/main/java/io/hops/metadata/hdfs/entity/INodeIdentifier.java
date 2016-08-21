@@ -36,6 +36,7 @@ public class INodeIdentifier {
   Integer pid;
   String  name;
   Integer partitionId;
+  Short   depth;
 
   public INodeIdentifier(Integer inodeID) {
     this(inodeID, null, null, null);
@@ -46,8 +47,17 @@ public class INodeIdentifier {
     this.pid = parentId;
     this.name = name;
     this.partitionId = partitionId;
+    this.depth = null;
   }
-  
+
+  public Short getDepth() {
+    return depth;
+  }
+
+  public void setDepth(Short depth) {
+    this.depth = depth;
+  }
+
   public Integer getInodeId() {
     return inodeID;
   }
