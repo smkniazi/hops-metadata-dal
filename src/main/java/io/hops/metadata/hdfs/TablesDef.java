@@ -290,6 +290,7 @@ public class TablesDef {
     public static final String PATH = "path";
     public static final String NAME_NODE_ID = "namenode_id";
     public static final String OP_NAME = "op_name";
-    public static final int LIMIT = 5;
+    public static final String PARTITION_ID = "partition_id";
+    public static final int LIMIT = 2;
   } 
 }
