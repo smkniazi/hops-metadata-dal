@@ -28,7 +28,7 @@ public abstract class RequestHandler {
   public interface OperationType {
   }
 
-  protected static Log log = LogFactory.getLog(RequestHandler.class);
+  protected static Log LOG = LogFactory.getLog(RequestHandler.class);
   protected Object[] params = null;
   // TODO These should be in a config file
   public static final int RETRY_COUNT = 5;
@@ -70,8 +70,10 @@ public abstract class RequestHandler {
   protected long exponentialBackoff() {
     try {
       if (waitTime > 0) {
-        log.debug("TX is being retried. Waiting for " + waitTime +
-            " ms before retry. TX name " + opType);
+        if(LOG.isDebugEnabled()) {
+          LOG.debug("TX is being retried. Waiting for " + waitTime +
+                  " ms before retry. TX name " + opType);
+        }
         Thread.sleep(waitTime);
       }
       if (waitTime == 0) {
@@ -81,7 +83,7 @@ public abstract class RequestHandler {
       }
       return waitTime;
     } catch (InterruptedException ex) {
-      log.warn(ex);
+      LOG.warn(ex);
     }
     return 0;
   }
