@@ -20,6 +20,7 @@ public class INodeBase {
   protected int id;
   protected int parentId;
   protected String name;
+  protected int partitionId;
   protected int userID;
   protected int groupID;
   protected String userName;
@@ -31,6 +32,7 @@ public class INodeBase {
   protected boolean subtreeLocked;
   protected long subtreeLockOwner;
   protected long fileSize;
+  protected boolean isDir;
 
   public INodeBase(){
 //    this.id = -1;
@@ -47,12 +49,14 @@ public class INodeBase {
 //    this.fileSize = -1;
   }
 
-  public INodeBase(int id, int parentId, String name, int userID,
+  public INodeBase(int id, int parentId, String name, int partitionId, boolean isDir, int userID,
       int groupID, short permission, long header, boolean dirWithQuota,
       boolean underConstruction, boolean subtreeLocked, long subtreeLockOwner, long fileSize) {
     this.id = id;
     this.parentId = parentId;
+    this.isDir = isDir;
     this.name = name;
+    this.partitionId = partitionId;
     this.userID = userID;
     this.groupID = groupID;
     this.permission = permission;
@@ -80,12 +84,28 @@ public class INodeBase {
     this.parentId = parentId;
   }
 
+  public boolean isDirectory(){
+    return this.isDir;
+  }
+
+  public void setIsDir(boolean isDir){
+    this.isDir = isDir;
+  }
+
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public int getPartitionId(){
+    return partitionId;
+  }
+
+  public void setPartitionId(int partitionId){
+    this.partitionId = partitionId;
   }
 
   public int getUserID() {
