@@ -4,8 +4,8 @@ package io.hops.metadata.hdfs.entity;
  * Created by salman on 3/10/16.
  */
 public class FileInodeData {
-    enum Type{
-        DiskDataFile,
+    public enum Type{
+        OnDiskFile,
         InmemoryFile
     }
 
@@ -19,7 +19,7 @@ public class FileInodeData {
         this.type = type;
     }
 
-    public Type databaseFileType(){
+    public Type getDBFileStorageType(){
         return type;
     }
 
