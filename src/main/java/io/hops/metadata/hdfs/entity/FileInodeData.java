@@ -4,12 +4,23 @@ package io.hops.metadata.hdfs.entity;
  * Created by salman on 3/10/16.
  */
 public class FileInodeData {
-    private int inodeId;
-    private byte[] inodeData;
+    enum Type{
+        DiskDataFile,
+        InmemoryFile
+    }
 
-    public FileInodeData(int inodeId, byte[] inodeData) {
+    private final int inodeId;
+    private final byte[] inodeData;
+    private final Type type;
+
+    public FileInodeData(int inodeId, byte[] inodeData, Type type) {
         this.inodeId = inodeId;
         this.inodeData = inodeData;
+        this.type = type;
+    }
+
+    public Type databaseFileType(){
+        return type;
     }
 
     public int getInodeId() {

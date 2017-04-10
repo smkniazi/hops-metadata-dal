@@ -51,8 +51,14 @@ public class TablesDef {
     public static final String FILE_STORED_IN_DB = "file_stored_in_db";
   }
 
-  public static interface FileInodeData {
-    public static final String TABLE_NAME = "hdfs_file_inode_data";
+  public static interface FileInodeInMemoryData {
+    public static final String TABLE_NAME = "hdfs_file_inode_in_memory_data";
+    public static final String ID = "inode_id";
+    public static final String DATA = "data";
+  }
+
+  public static interface FileInodeOnDiskData {
+    public static final String TABLE_NAME = "hdfs_file_inode_on_disk_data";
     public static final String ID = "inode_id";
     public static final String DATA = "data";
   }
