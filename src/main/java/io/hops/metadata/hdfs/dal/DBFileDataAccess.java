@@ -4,9 +4,9 @@ import io.hops.exception.StorageException;
 import io.hops.metadata.common.EntityDataAccess;
 
 /**
- * Created by salman on 3/10/16.
+ * Created by salman on 4/28/17.
  */
-public interface OnDiskInodeDataAccess<T> extends EntityDataAccess {
+  public interface DBFileDataAccess<T> extends EntityDataAccess {
     void add(T fileInodeData) throws StorageException;
 
     T get(int inodeId) throws StorageException;
@@ -14,5 +14,5 @@ public interface OnDiskInodeDataAccess<T> extends EntityDataAccess {
     void delete(T fileInodeData) throws StorageException;
 
     int count() throws StorageException;
-}
+  }
 

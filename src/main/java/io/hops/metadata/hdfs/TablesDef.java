@@ -57,8 +57,20 @@ public class TablesDef {
     public static final String DATA = "data";
   }
 
-  public static interface FileInodeDiskData {
-    public static final String TABLE_NAME = "hdfs_ondisk_file_inode_data";
+  public static interface FileInodeSmallDiskData {
+    public static final String TABLE_NAME = "hdfs_ondisk_small_file_inode_data";
+    public static final String ID = "inode_id";
+    public static final String DATA = "data";
+  }
+
+  public static interface FileInodeMediumlDiskData {
+    public static final String TABLE_NAME = "hdfs_ondisk_medium_file_inode_data";
+    public static final String ID = "inode_id";
+    public static final String DATA = "data";
+  }
+
+  public static interface FileInodeLargeDiskData {
+    public static final String TABLE_NAME = "hdfs_ondisk_large_file_inode_data";
     public static final String ID = "inode_id";
     public static final String DATA = "data";
   }
