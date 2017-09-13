@@ -57,4 +57,8 @@ public class NDCWrapper {
     }
 
   }
+
+  public static boolean NDCEnabled(){
+    return NDCEnabled;
+  }
 }
