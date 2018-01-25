@@ -22,8 +22,10 @@ import io.hops.exception.TransactionContextException;
 import io.hops.metadata.common.FinderType;
 import io.hops.transaction.EntityManager;
 
-public class HashBucket {
-  
+import java.util.Objects;
+
+public class HashBucket implements  Comparable<HashBucket> {
+
   public enum Finder implements FinderType<HashBucket> {
     ByStorageIdAndBucketId;
   
@@ -104,5 +106,35 @@ public class HashBucket {
       //Collisions not dangerous, only used for HashMap key.
       return bucketId * storageId;
     }
+  }
+
+  @Override
+  public int compareTo(HashBucket o) {
+    return bucketId < o.bucketId ? -1 : bucketId > o.bucketId ? 1 : 0;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    HashBucket that = (HashBucket) o;
+    return getStorageId() == that.getStorageId() &&
+            getBucketId() == that.getBucketId() &&
+            getHash() == that.getHash();
+  }
+
+  @Override
+  public int hashCode() {
+
+    return Objects.hash(getStorageId(), getBucketId(), getHash());
+  }
+
+  @Override
+  public String toString() {
+    return "HashBucket{" +
+            "storageId=" + storageId +
+            ", bucketId=" + bucketId +
+            ", hash=" + hash +
+            '}';
   }
 }
