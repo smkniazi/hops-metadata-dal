@@ -138,7 +138,6 @@ public class TablesDef {
     String TABLE_NAME = "hdfs_excess_replicas";
     String BLOCK_ID = "block_id";
     String INODE_ID = "inode_id";
-    String PART_KEY = "part_key";
     String STORAGE_ID = "storage_id";
     String STORAGE_IDX = "storage_idx";
   }
@@ -227,8 +226,6 @@ public class TablesDef {
     String BLOCK_ID = "block_id";
     String STORAGE_ID = "storage_id";
     String INODE_ID = "inode_id";
-    String REPLICA_INDEX = "replica_index";
-    String HASH_BUCKET = "bucket_id";
   }
 
   public interface QuotaUpdateTableDef {
@@ -247,8 +244,6 @@ public class TablesDef {
     String STORAGE_ID = "storage_id";
     String INODE_ID = "inode_id";
     String STATE = "state";
-    String REPLICA_INDEX = "replica_index";
-    String HASH_BUCKET = "bucket_id";
     String CHOSEN_AS_PRIMARY = "chosen_as_primary";
     String GENERATION_STAMP = "generation_stamp";
   }
