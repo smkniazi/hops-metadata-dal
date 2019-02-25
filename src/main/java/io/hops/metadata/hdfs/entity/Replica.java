@@ -67,23 +67,13 @@ public class Replica extends ReplicaBase {
     }
   }
 
-  private int bucketId;
-
-  /**
-   * @return the hash bucket this block is assigned to
-   */
-  public int getBucketId(){
-    return bucketId;
-  }
-
-  public Replica(int storageId, long blockId, long inodeId, int bucketId) {
+  public Replica(int storageId, long blockId, long inodeId) {
     super(storageId, blockId, inodeId);
-    this.bucketId = bucketId;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageId,inodeId,blockId,bucketId);
+    return Objects.hash(storageId,inodeId,blockId);
   }
 
   @Override
@@ -95,13 +85,6 @@ public class Replica extends ReplicaBase {
     int compVal = super.compareTo(t);
     if(compVal != 0){
       return compVal;
-    }
-
-    if ( t instanceof  Replica){
-      compVal = new Integer(bucketId).compareTo(((Replica)t).bucketId);
-      if(compVal != 0){
-        return  compVal;
-      }
     }
 
     return 0;
