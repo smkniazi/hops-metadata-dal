@@ -153,7 +153,8 @@ public abstract class TransactionalRequestHandler extends RequestHandler {
                   "RetryCount: " + (tryCount-1) + ", " +
                   "TX Stats -- Setup: " + setupTime + "ms, AcquireLocks: " + acquireLockTime + "ms, " +
                   "InMemoryProcessing: " + inMemoryProcessingTime + "ms, " +
-                  "CommitTime: " + commitTime + "ms. " + t, t);
+                  "CommitTime: " + commitTime + "ms. Locks: "+
+                  getINodeLockInfo(locksAcquirer.getLocks())+". " + t, t);
         }
         if (!(t instanceof TransientStorageException) ||  tryCount > RETRY_COUNT) {
           for(Throwable oldExceptions : exceptions) {
