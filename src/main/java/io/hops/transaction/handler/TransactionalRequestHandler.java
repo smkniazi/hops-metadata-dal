@@ -209,7 +209,7 @@ public abstract class TransactionalRequestHandler extends RequestHandler {
       if(locks != null) {
         Lock ilock = locks.getLock(Lock.Type.INode);
         if (ilock != null) {
-          inodeLockMsg = ilock.toString();
+        inodeLockMsg = ilock.toString();
         }
       }
     }catch (TransactionLocks.LockNotAddedException e){
