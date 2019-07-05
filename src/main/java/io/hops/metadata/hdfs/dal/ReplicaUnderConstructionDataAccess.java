@@ -40,4 +40,7 @@ public interface ReplicaUnderConstructionDataAccess<T>
       StorageException;
 
   int countAll() throws StorageException;
+
+  //only for testing
+  List<T> findAll() throws StorageException;
 }

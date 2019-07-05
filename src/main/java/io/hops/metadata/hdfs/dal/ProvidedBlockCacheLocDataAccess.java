@@ -20,29 +20,18 @@ import io.hops.metadata.common.EntityDataAccess;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
-public interface ExcessReplicaDataAccess<T> extends EntityDataAccess {
-
-  int countAll() throws StorageException;
-
-  List<T> findExcessReplicaBySid(int sid) throws StorageException;
-
-  List<T> findExcessReplicaByBlockId(long bId, long inodeId)
-      throws StorageException;
+public interface ProvidedBlockCacheLocDataAccess<T> extends EntityDataAccess {
   
-  List<T> findExcessReplicaByINodeId(long inodeId) throws StorageException;
+  T findByBlockID(long blockId) throws StorageException;
   
-  List<T> findExcessReplicaByINodeIds(long[] inodeIds) throws StorageException;
-
-  T findByPK(long blockId, int sid, long inodeId) throws StorageException;
-
-  void prepare(Collection<T> removed, Collection<T> newed,
-      Collection<T> modified) throws StorageException;
-
-  void removeAll() throws StorageException;
+  Map<Long, T> findByBlockIDs(long[] blockIds) throws StorageException;
   
-  int countAllUniqueBlk() throws StorageException;
+  void update(Collection<T> modified) throws StorageException;
+
+  void delete(Collection<Long> deleted) throws StorageException;
 
   //only for testing
-  List<T> findAll() throws StorageException;
+  Map<Long, T> findAll() throws StorageException;
 }

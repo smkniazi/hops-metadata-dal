@@ -13,25 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.hops.metadata.hdfs.entity;
+package io.hops.metadata.hdfs.dal;
 
-public class StorageId {
+import io.hops.exception.StorageException;
+import io.hops.metadata.common.EntityDataAccess;
+import io.hops.metadata.hdfs.entity.Storage;
 
-  public static final int CLOUD_STORAGE_ID = -1;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
-  private final String storageId;
-  private final int sId;
+public interface ProvidedBlockReportTasksDataAccess<T> extends EntityDataAccess {
 
-  public StorageId(String storageId, int sId) {
-    this.storageId = storageId;
-    this.sId = sId;
-  }
+  T popTask() throws StorageException;
 
-  public String getStorageId() {
-    return storageId;
-  }
+  long count() throws StorageException;
 
-  public int getsId() {
-    return sId;
-  }
+  List<T> getAllTasks() throws StorageException;
+
+  void addTasks(List<T> tasks) throws StorageException;
+
+  void deleteAll() throws StorageException;
+
 }

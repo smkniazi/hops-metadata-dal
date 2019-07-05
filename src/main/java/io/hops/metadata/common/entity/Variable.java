@@ -72,7 +72,9 @@ public abstract class Variable {
     completedScanCount(35),
     curScanCount(36),
     FenceID(37),
-    ConfigurationStoreVersion(38),;
+    ConfigurationStoreVersion(38),
+    providedBlocksCheckStartTime(39),
+    providedBlockReportsCount(40);
 
     private final int id;
     private static Map<Integer, Finder> idToFinder = new HashMap<>(Finder.values().length);
@@ -198,6 +200,10 @@ public abstract class Variable {
         return new IntVariable(varType);
       case curScanCount:
         return new IntVariable(varType);
+      case providedBlockReportsCount:
+        return  new LongVariable(varType);
+      case providedBlocksCheckStartTime:
+        return  new LongVariable(varType);
       case RollingUpgradeInfo:
         return new ByteArrayVariable(varType);
       case SafeModeInfo:
