@@ -258,6 +258,13 @@ public class TablesDef {
     String STORAGE_ID = "storage_id";
   }
 
+  public interface CloudBucketsTabDef {
+
+    String TABLE_NAME = "hdfs_cloud_buckets";
+    String ID = "id";
+    String NAME = "name";
+  }
+
   public interface ProvidedBlockReportTasksTabDef {
 
     String TABLE_NAME = "hdfs_provided_block_report_tasks";

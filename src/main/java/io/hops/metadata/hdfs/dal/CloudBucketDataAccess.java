@@ -13,24 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package io.hops.metadata.hdfs.dal;
 
 import io.hops.exception.StorageException;
 import io.hops.metadata.common.EntityDataAccess;
 
-import java.util.Collection;
 import java.util.Map;
 
-public interface ProvidedBlockCacheLocDataAccess<T> extends EntityDataAccess {
+public interface CloudBucketDataAccess<T> extends EntityDataAccess {
   
-  T findByBlockID(long blockId) throws StorageException;
-  
-  Map<Long, T> findByBlockIDs(long[] blockIds) throws StorageException;
-  
-  void update(Collection<T> modified) throws StorageException;
+  int addBucket(String name) throws StorageException;
 
-  void delete(Collection<Long> deleted) throws StorageException;
-
-  //only for testing
-  Map<Long, T> findAll() throws StorageException;
+  Map<String, T> getAll() throws StorageException;
 }

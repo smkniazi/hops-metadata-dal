@@ -34,7 +34,7 @@ public abstract class DalAdaptor<HDFSClass, DALClass> {
   }
 
   public abstract DALClass convertHDFStoDAL(HDFSClass hdfsClass)
-      throws StorageException;
+          throws StorageException;
 
   public Collection<HDFSClass> convertDALtoHDFS(
       Collection<DALClass> dalCollection) throws StorageException {
