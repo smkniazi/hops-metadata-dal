@@ -79,9 +79,10 @@
 
   <distributionManagement>
     <repository>
-      <id>Hops</id>
-      <name>Hops Repo</name>
-      <url>https://archiva.hops.works/repository/Hops/</url>
+      <id>HopsEE</id>
+      <name>Hops Enterprise Repo</name>
+      <url>https://archive.logicalclocks.com/repository/hops-artifacts</url>
+ in pom.xml for Eenterprise Edition
       <releases>
         <enabled>true</enabled>
       </releases>
