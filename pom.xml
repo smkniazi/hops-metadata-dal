@@ -5,7 +5,7 @@
 
   <groupId>io.hops.metadata</groupId>
   <artifactId>hops-metadata-dal</artifactId>
-  <version>3.2.0.0-SNAPSHOT</version>
+  <version>3.2.0.0-EE-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>hops-metadata-dal</name>
@@ -81,8 +81,7 @@
     <repository>
       <id>HopsEE</id>
       <name>Hops Enterprise Repo</name>
-      <url>https://archive.logicalclocks.com/repository/hops-artifacts</url>
- in pom.xml for Eenterprise Edition
+      <url>https://nexus.hops.works/repository/hops-artifacts</url>
       <releases>
         <enabled>true</enabled>
       </releases>
