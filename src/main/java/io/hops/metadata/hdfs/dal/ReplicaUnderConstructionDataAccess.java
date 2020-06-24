@@ -36,9 +36,6 @@ public interface ReplicaUnderConstructionDataAccess<T>
   void prepare(Collection<T> removed, Collection<T> newed,
       Collection<T> modified) throws StorageException;
 
-  void removeByBlockIdAndInodeId(long blockId, long inodeId) throws
-      StorageException;
-
   int countAll() throws StorageException;
 
   //only for testing
