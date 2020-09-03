@@ -71,10 +71,10 @@ public abstract class Variable {
     BlockReplicationQueueThreshold(34),
     completedScanCount(35),
     curScanCount(36),
-    FenceID(37),
-    ConfigurationStoreVersion(38),
-    providedBlocksCheckStartTime(39),
-    providedBlockReportsCount(40),
+    providedBlocksCheckStartTime(37),
+    providedBlockReportsCount(38),
+    FenceID(39),
+    ConfigurationStoreVersion(40),
     RetryCacheCleanerEpoch(41),;
 
     private final int id;
